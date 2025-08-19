@@ -1,0 +1,95 @@
+/* Base Styles & Relative Units */
+/* We set a base font size on the root element. All 'rem' units will be relative to this size. */
+:root {
+    font-size: 16px; /* Base font size, easy to change */
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    /* Font size in 'rem' scales with the base font size */
+    font-size: 2.5rem; 
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Flexbox for the Navigation Bar */
+.site-nav ul {
+    display: flex;
+    /* Flexbox property to distribute items evenly */
+    justify-content: space-around; 
+    list-style: none;
+    margin: 0;
+    padding: 1rem; /* Padding in 'rem' */
+    background-color: #333;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* CSS Grid for the Main Layout */
+.main-layout {
+    display: grid;
+    /* On desktop, create two columns. 'fr' is a flexible unit in Grid */
+    grid-template-columns: 2fr 1fr; 
+    gap: 2rem; /* Gap in 'rem' */
+    padding: 2rem;
+}
+
+.content-section, .sidebar {
+    background-color: #f4f4f4;
+    padding: 1.5rem; /* Padding in 'rem' */
+    border-radius: 8px;
+}
+
+/* The footer height will be 5% of the viewport width */
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    height: 5vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media Queries */
+
+/* Tablet View (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Stack the grid columns for tablets */
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile View (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Stack the Flexbox navigation items vertically */
+    .site-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    /* Set the sidebar width to 90% of its container */
+    .sidebar {
+        width: 90%; 
+        margin: auto; /* Center the sidebar */
+    }
+}
